@@ -140,7 +140,9 @@ const AuthScreen = (props) => {
                 <Button
                   title={isSignup ? "Sign Up" : "Login"}
                   color={Colors.primary}
-                  onPress={authHandler}
+                  onPress={() => {
+                    props.navigation.navigate("Shop");
+                  }}
                 />
               )}
             </View>

@@ -69,7 +69,7 @@ ProductsOverviewScreen.navigationOptions = (navData) => {
     ),
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
+        <Item 
           title="Cart"
           iconName={Platform.OS === "android" ? "md-cart" : "ios-cart"}
           onPress={() => {

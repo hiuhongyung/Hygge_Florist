@@ -18,9 +18,7 @@ import EditProductScreen from '../screens/user/EditProductScreen';
 import Colors from '../constants/Colors';
 
 const defaultNavOptions = {
-  headerStyle: {
-    backgroundColor: Platform.OS === 'android' ? Colors.primary : ''
-  },
+  headerTransparent: true,
   headerTitleStyle: {
     fontFamily: 'open-sans-bold'
   },
@@ -105,7 +103,7 @@ const AuthNavigator = createStackNavigator({
 })
 
 const MainNavigator = createSwitchNavigator({
- 
+  Auth: AuthNavigator,
   Shop: ShopNavigator
 });
 

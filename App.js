@@ -7,13 +7,20 @@ import productsReducer from "./store/reducers/products";
 import ShopNavigator from "./navigation/ShopNavigator";
 import cartReducer from "./store/reducers/cart";
 import ordersReducer from "./store/reducers/orders";
+import authReducer from "./store/reducers/auth";
+import AppLoading from 'expo-app-loading';
+
+
+
 const rootReducer = combineReducers({
   products: productsReducer,
   cart: cartReducer,
   orders: ordersReducer,
+  auth: authReducer
 });
 
 const store = createStore(rootReducer, composeWithDevTools());
+
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -23,6 +30,19 @@ const fetchFonts = () => {
 };
 
 export default function App() {
+  const [fontLoaded, setFontLoaded ] = useState(false);
+
+  if (!fontLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => {
+          setFontLoaded(true);
+        }}
+        onError={console.warn}
+      />
+    );
+  };
   return (
     <Provider store={store}>
       <ShopNavigator />

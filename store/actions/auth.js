@@ -9,7 +9,7 @@ let timer;
 
 export const authenticate = (userId, token, expiryTime) => {
   return dispatch => {
-    dispatch(setLogoutTimer(expiryTime));
+    dispatch(setLogoutTimer(expiryTime)); 
     dispatch({ type: AUTHENTICATE, userId: userId, token: token });
   };
 };
